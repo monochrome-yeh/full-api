@@ -1,0 +1,4 @@
+frontend
+vendor
+.svn
+composer.lock

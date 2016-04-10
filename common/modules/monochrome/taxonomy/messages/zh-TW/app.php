@@ -1,0 +1,25 @@
+<?php
+
+return [
+	'Create' => '新增',
+	'Update' => '更新',
+	'Type' => '類別',
+	'Types' => '類別列表',
+	'Type Name' => '類別名稱',
+	'Item' => '項目',
+	'Items' => '項目列表',
+	'Item Name' => '項目名稱',
+	'Create{modelClass}' => '新增{modelClass}',
+	'Update{modelClass}' => '更新{modelClass}',
+	'Create Item' => '新增項目',
+	'Update Item' => '更新項目',
+	'Please choose a type.' => '請選擇類別。',
+	'Create Success.' => '新增成功。',
+	'Update Success.' => '更新成功。',
+	'Something Wrong.' => '欄位請填寫正確。',
+	'Set Ad Meida Or Ad Media Request Items' => '此為業務人員記錄客戶的來客媒體或需求',
+	'guest_status' => '來客判定',
+	'ad_media' => '媒體項目',
+	'request_rooms' => '需求房數',
+	'request_square_meters' => '需求坪數',
+];
