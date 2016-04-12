@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use frontend\widgets\Alert;
+use common\modules\monochrome\alert\widgets\Alert;
 use backend\assets\AppAsset;
 use backend\modules\monochrome\topUp\TopUp;
 use common\modules\monochrome\members\Members;
