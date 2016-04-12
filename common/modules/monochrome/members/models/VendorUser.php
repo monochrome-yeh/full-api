@@ -331,7 +331,7 @@ class VendorUser extends User
         return true;
     }
 
-    public function sendPasswordEmail($vendorModel)
+    public function sendPasswordEmail($vendorModel = null)
     {
         if ($this->sendEmail === true && $vendorModel != null) {
             $link = Yii::$app->urlManagerFrontend->createAbsoluteUrl(["/login/{$this->vid}"], true);

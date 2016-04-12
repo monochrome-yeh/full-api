@@ -751,9 +751,10 @@ class MongoDbManager extends BaseManager
         ]);
  
         $this->mongodb->getCollection($this->assignmentCollection)->update([
-            '_id'=>"{$assignment->userId}-$assignment->roleName"
+            '_id'=>"{$assignment->userId}"
         ],[
             '$setOnInsert'=>[
+                'aid'=>"{$assignment->userId}-$assignment->roleName",
                 'user_id' => $assignment->userId,
                 'item_name' => $assignment->roleName,
                 'created_at' => $assignment->createdAt,
@@ -777,7 +778,7 @@ class MongoDbManager extends BaseManager
         }
  
         return $this->mongodb->getCollection($this->assignmentCollection)->remove([
-            '_id'=>"{$userId}-{$role->name}"
+            'aid'=>"{$userId}-{$role->name}"
         ])!==false;
     }
  
@@ -809,7 +810,7 @@ class MongoDbManager extends BaseManager
     public function getAssignment($roleName, $userId)
     {
         $row = (new Query)->from($this->assignmentCollection)
-                          ->where(['_id'=>"{$userId}-$roleName"])
+                          ->where(['aid'=>"{$userId}-$roleName"])
                           ->one($this->mongodb);
  
         if ($row === false) {

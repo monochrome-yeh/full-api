@@ -28,6 +28,7 @@ class Assignment extends \yii\mongodb\ActiveRecord
     public function attributes()
     {
         return [
+            'aid',
             'user_id',
             'item_name',
             'created_at',
@@ -40,6 +41,7 @@ class Assignment extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
+            ['aid', 'required'],
             [['item_name', 'created_at'], 'safe']
         ];
     }
@@ -51,6 +53,7 @@ class Assignment extends \yii\mongodb\ActiveRecord
     {
         return [
             '_id' => RBAM::t('app', 'ID'),
+            'aid' => RBAM::t('app', 'AID'),
             'user_id' => RBAM::t('app', 'User Id'),
             'item_name' => RBAM::t('app', 'Name'),
             'created_at' => RBAM::t('app', 'created at'),

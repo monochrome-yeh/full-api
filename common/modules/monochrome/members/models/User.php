@@ -427,7 +427,7 @@ class User extends ActiveRecord implements IdentityInterface
         return false;
     }
 
-    public function sendPasswordEmail()
+    public function sendPasswordEmail($userModel = null)
     {
         if ($this->sendEmail === true) {
             $link = Url::toRoute(["/login"], true);
