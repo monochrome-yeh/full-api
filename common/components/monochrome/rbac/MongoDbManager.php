@@ -493,7 +493,7 @@ class MongoDbManager extends BaseManager
      */
     public function getRolesByUser($userId)
     {
-        if($userId instanceof \MongoId){
+        if($userId instanceof \MongoId || $userId instanceof \MongoDB\BSON\ObjectID){
             $userId = (string)$userId;
         }
  
@@ -543,7 +543,7 @@ class MongoDbManager extends BaseManager
      */
     public function getPermissionsByUser($userId)
     {
-        if($userId instanceof \MongoId){
+        if($userId instanceof \MongoId || $userId instanceof \MongoDB\BSON\ObjectID){
             $userId = (string)$userId;
         }
  
@@ -740,7 +740,7 @@ class MongoDbManager extends BaseManager
      */
     public function assign($role, $userId)
     {
-        if($userId instanceof \MongoId){
+        if($userId instanceof \MongoId || $userId instanceof \MongoDB\BSON\ObjectID){
             $userId = (string)$userId;
         }
  
@@ -772,7 +772,7 @@ class MongoDbManager extends BaseManager
      */
     public function revoke($role, $userId)
     {
-        if($userId instanceof \MongoId){
+        if($userId instanceof \MongoId || $userId instanceof \MongoDB\BSON\ObjectID){
             $userId = (string)$userId;
         }
  
@@ -789,7 +789,7 @@ class MongoDbManager extends BaseManager
      */
     public function revokeAll($userId)
     {
-        if($userId instanceof \MongoId){
+        if($userId instanceof \MongoId || $userId instanceof \MongoDB\BSON\ObjectID){
             $userId = (string)$userId;
         }
  
@@ -832,7 +832,7 @@ class MongoDbManager extends BaseManager
      */
     public function getAssignments($userId)
     {
-        if($userId instanceof \MongoId){
+        if($userId instanceof \MongoId || $userId instanceof \MongoDB\BSON\ObjectID){
             $userId = (string)$userId;
         }
  
