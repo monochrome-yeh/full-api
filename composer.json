@@ -17,7 +17,6 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-mongodb": "*",
         "yiisoft/yii2-gii": "*",
 	"yiisoft/yii2-codeception": "^2.0@dev",
 	"yiisoft/yii2-swiftmailer": "*",
@@ -28,7 +27,9 @@
 	"kartik-v/yii2-mpdf": "@dev",
         "kartik-v/yii2-grid": "*",
 	"kartik-v/bootstrap-fileinput": "dev-master",
-	"aws/aws-sdk-php": "3.0.*@dev"
+        "mongofill/mongofill": "dev-master",
+	"yiisoft/yii2-mongodb": "*"
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",
