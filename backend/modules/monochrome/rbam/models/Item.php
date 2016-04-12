@@ -93,8 +93,9 @@ class Item extends \yii\mongodb\ActiveRecord
         return true;
     }
 
-    public function afterSave()
+    public function afterSave($insert, $changedAttributes)
     {
+        parent::afterSave($insert, $changedAttributes);
         $this->addChildren();
     }
 

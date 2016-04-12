@@ -125,8 +125,14 @@ return [
         'modelValidator' => [
             'class' => 'common\modules\monochrome\modelValidator\ModelValidator',
         ],
-	'alert' => [
+	   'alert' => [
             'class' => 'common\modules\monochrome\alert\Alert',
+        ],
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+            // enter optional module parameters below - only if you need to use your own export download action or custom translation message source
+            // 'downloadAction' => 'gridview/export/download',
+            // 'i18n' => [],
         ],
     ]
 ];
