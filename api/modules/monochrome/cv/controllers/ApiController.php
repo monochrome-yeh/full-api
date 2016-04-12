@@ -34,10 +34,10 @@ class ApiController extends Controller
 		            'class' => \yii\filters\Cors::className(),
 		            'cors' => [
 		                // restrict access to
-		                'Origin' => ['http://dev.monochrome.com'],
+		                'Origin' => Yii::$app->params['header']['origin'],
 		                'Access-Control-Request-Method' => ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT'],
 		                // Allow only POST and PUT methods
-		                'Access-Control-Request-Headers' => ['X-Requested-With', 'X-Monochrome-CV', 'Content-Type'],
+		                'Access-Control-Request-Headers' => Yii::$app->params['header']['access-headers'],
 		                // Allow only headers 'X-Wsse'
 		                'Access-Control-Allow-Credentials' => true,
 		                // Allow OPTIONS caching
