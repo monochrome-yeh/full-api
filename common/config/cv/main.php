@@ -125,5 +125,8 @@ return [
         'modelValidator' => [
             'class' => 'common\modules\monochrome\modelValidator\ModelValidator',
         ],
+	'alert' => [
+            'class' => 'common\modules\monochrome\alert\Alert',
+        ],
     ]
 ];
