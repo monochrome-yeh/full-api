@@ -177,7 +177,7 @@ class Members extends \yii\base\Module
     public static function getEmailTemplate($string)
     {
         if (array_key_exists($string, Yii::$app->getModule('members')->getConfig()['template'])) {
-            return Yii::$app->getModule('members')->getConfig()['template'][$string];
+            return Yii::getAlias(Yii::$app->getModule('members')->getConfig()['template'][$string]);
         }
     }
 
