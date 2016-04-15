@@ -6,6 +6,7 @@ use common\modules\monochrome\members\models\AdminUser;
 use common\modules\monochrome\members\models\CVModel;
 use yii\web\NotFoundHttpException;
 use yii\rest\Controller;
+use yii\filters\AccessControl;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -62,7 +63,6 @@ class ApiController extends Controller
 
 		        ]
 	        ],
-	        parent::behaviors(),  
 	        [
 		        'contentNegotiator' => [
 		            'class' => \yii\filters\ContentNegotiator::className(),
@@ -73,7 +73,27 @@ class ApiController extends Controller
 		                //'application/xml' => \yii\web\Response::FORMAT_XML,
 		            ],
 		        ]
+	        ],
+	        [
+		        'access' => [
+		            'class' => AccessControl::className(),
+		            'rules' => [
+		                [
+		                    'actions' => ['profile', 'skill-details'],
+		                    'allow' => true,
+		                    'ips' => \Yii::$app->params['access-ip'],
+		                    'roles' => ['?']
+		                ],
+		                [
+		                    'actions' => ['update'],
+		                    'allow' => true,
+		                    'ips' => \Yii::$app->params['access-ip'],
+		                    'roles' => ['@', '?']
+		                ],
+		            ],
+		        ],
 	        ]
+	        //parent::behaviors()
 	    );
 	}
 
@@ -96,6 +116,12 @@ class ApiController extends Controller
     	$data = User::find()->where(['_id' => $uid])->select(['_id' => false, 'cv.zh_tw.skill_details'])->asArray()->one();
     	return $data['cv']['zh_tw'];
     }
+
+    public function actionItrodcutionDetail($uid) {
+    	$data = User::find()->where(['_id' => $uid])->select(['_id' => false, 'cv.zh_tw.introduction_detail'])->asArray()->one();
+    	return $data['cv']['zh_tw'];
+    }
+
 
     public function actionUpdate($uid)
     {
