@@ -55,6 +55,10 @@ class ApiController extends Controller
 		                    'Access-Control-Allow-Credentials' => false,
 		                  	'Access-Control-Request-Method' => ['GET'],
 		                ],
+		                'introduction-detail' => [
+		                    'Access-Control-Allow-Credentials' => false,
+		                  	'Access-Control-Request-Method' => ['GET'],
+		                ],
 		                'update' => [
 		                    'Access-Control-Allow-Credentials' => true,
 		                  	'Access-Control-Request-Method' => ['PUT'],
@@ -79,7 +83,7 @@ class ApiController extends Controller
 		            'class' => AccessControl::className(),
 		            'rules' => [
 		                [
-		                    'actions' => ['profile', 'skill-details'],
+		                    'actions' => ['profile', 'skill-details', 'introduction-detail'],
 		                    'allow' => true,
 		                    'ips' => \Yii::$app->params['access-ip'],
 		                    'roles' => ['?']

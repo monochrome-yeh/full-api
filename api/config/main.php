@@ -41,6 +41,7 @@ return [
                     'extraPatterns' => [
                         'GET,HEAD profile/{id}' => 'profile',
                         'GET,HEAD skill-details/{id}' => 'skill-details',
+                        'GET,HEAD introduction-detail/{id}' => 'introduction-detail',
                         'PUT update/{id}' => 'update',
 
                         'OPTIONS update/{id}' => 'options',
