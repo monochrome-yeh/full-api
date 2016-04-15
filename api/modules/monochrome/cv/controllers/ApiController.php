@@ -121,7 +121,7 @@ class ApiController extends Controller
     	return $data['cv']['zh_tw'];
     }
 
-    public function actionItrodcutionDetail($uid) {
+    public function actionIntroductionDetail($uid) {
     	$data = User::find()->where(['_id' => $uid])->select(['_id' => false, 'cv.zh_tw.introduction_detail'])->asArray()->one();
     	return $data['cv']['zh_tw'];
     }
