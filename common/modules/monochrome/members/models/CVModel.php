@@ -48,6 +48,7 @@ class CVModel extends \yii\mongodb\ActiveRecord
             'skills',
             'skill_details',
             'introduction',
+            'introduction_detail',
             'portfolio',
             'experience',
             'created_at',
@@ -68,7 +69,7 @@ class CVModel extends \yii\mongodb\ActiveRecord
             [['tel', 'skills', 'portfolio', 'experience'], 'safe', 'skipOnEmpty' => true],
             ['age', 'integer'],
             ['introduction', 'string', 'max' => 300],
-            ['skill_details', 'string', 'max' => 3000],
+            [['skill_details', 'introduction_detail'], 'string', 'max' => 3000],
             [['created_at', 'updated_at'], 'safe'],
         ];
     }

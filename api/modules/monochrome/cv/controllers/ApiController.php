@@ -5,7 +5,7 @@ use common\modules\monochrome\members\models\User;
 use common\modules\monochrome\members\models\AdminUser;
 use common\modules\monochrome\members\models\CVModel;
 use yii\web\NotFoundHttpException;
-use yii\rest\Controller;
+use common\components\monochrome\rest\Controller;
 use yii\filters\AccessControl;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -30,6 +30,7 @@ class ApiController extends Controller
 		// $behaviors = parent::behaviors();
 		// print_r($behaviors);exit;
 	    return ArrayHelper::merge(
+	    	parent::behaviors(),
 	    	[
 		        'corsFilter' => [
 		            'class' => \yii\filters\Cors::className(),
@@ -55,10 +56,7 @@ class ApiController extends Controller
 		                    'Access-Control-Allow-Credentials' => false,
 		                  	'Access-Control-Request-Method' => ['GET'],
 		                ],
-		                'introduction-detail' => [
-		                    'Access-Control-Allow-Credentials' => false,
-		                  	'Access-Control-Request-Method' => ['GET'],
-		                ],
+
 		                'update' => [
 		                    'Access-Control-Allow-Credentials' => true,
 		                  	'Access-Control-Request-Method' => ['PUT'],
@@ -77,27 +75,8 @@ class ApiController extends Controller
 		                //'application/xml' => \yii\web\Response::FORMAT_XML,
 		            ],
 		        ]
-	        ],
-	        [
-		        'access' => [
-		            'class' => AccessControl::className(),
-		            'rules' => [
-		                [
-		                    'actions' => ['profile', 'skill-details', 'introduction-detail'],
-		                    'allow' => true,
-		                    'ips' => \Yii::$app->params['access-ip'],
-		                    'roles' => ['?']
-		                ],
-		                [
-		                    'actions' => ['update'],
-		                    'allow' => true,
-		                    'ips' => \Yii::$app->params['access-ip'],
-		                    'roles' => ['@', '?']
-		                ],
-		            ],
-		        ],
 	        ]
-	        //parent::behaviors()
+	        
 	    );
 	}
 
