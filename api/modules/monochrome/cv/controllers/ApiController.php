@@ -30,7 +30,7 @@ class ApiController extends Controller
 		// $behaviors = parent::behaviors();
 		// print_r($behaviors);exit;
 	    return ArrayHelper::merge(
-	    	parent::behaviors(),
+	    	//parent::behaviors(),
 	    	[
 		        'corsFilter' => [
 		            'class' => \yii\filters\Cors::className(),
