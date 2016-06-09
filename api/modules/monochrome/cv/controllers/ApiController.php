@@ -110,7 +110,9 @@ class ApiController extends Controller
             $data = [];
             $data['CVModel'] = $userModel->cv['zh_tw'];
             if (!isset($userModel->cv[$language])) {
-                $userModel->cv[$language] = $userModel->cv['zh_tw'];
+                $cv = $userModel->cv;
+                $cv[$language] = $userModel->cv['zh_tw'];
+                $userModel->cv = $cv;
             }
 
             if ($language !== 'zh_tw' && isset($userModel->cv[$language])) {
