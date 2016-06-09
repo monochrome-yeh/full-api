@@ -10,12 +10,12 @@ return [
     'name' => 'Monochrome-CV',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'modelValidator'],
-    'components' => [    
+    'components' => [
         'request' => [
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]
-        ],     
+        ],
         'user' => [
             'class' => 'common\modules\monochrome\members\components\User',
             'identityClass' => 'common\modules\monochrome\members\models\User',
@@ -26,7 +26,7 @@ return [
                 'path' => '/api/web' // correct path for backend app.
             ],
             'idParam' => '__api',
-        ],     
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -36,16 +36,17 @@ return [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['cv' => 'cv/api'],
                     'tokens' => [
-                        '{id}' => '<uid:\w+>'
-                    ],                   
+                        '{id}' => '<uid:\w+>',
+                        '{language}' => '<language:(zh_tw|zh_cn|en)>'
+                    ],
                     'extraPatterns' => [
-                        'GET,HEAD profile/{id}' => 'profile',
-                        'GET,HEAD skill-details/{id}' => 'skill-details',
-                        'GET,HEAD introduction-detail/{id}' => 'introduction-detail',
-                        'PUT update/{id}' => 'update',
+                        'GET,HEAD profile/{id}/{language}' => 'profile',
+                        // 'GET,HEAD skill-details/{id}' => 'skill-details',
+                        // 'GET,HEAD introduction-detail/{id}' => 'introduction-detail',
+                        'PUT update/{id}/{language}' => 'update',
 
-                        'OPTIONS update/{id}' => 'options',
-                    ],                    
+                        'OPTIONS update/{id}/{language}' => 'options',
+                    ],
                     'pluralize'=> false
                 ],
             ],
