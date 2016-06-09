@@ -82,7 +82,7 @@ class ApiController extends Controller
     {
         $data = $this->findUserCV($uid);
 
-        $result = $data['cv']['zh_tw']
+        $result = $data['cv']['zh_tw'];
 
         if ($language !== 'zh_tw' && isset($data['cv'][$language])) {
             $result = array_replace_recursive($data['cv']['zh_tw'], $data['cv'][$language]);
