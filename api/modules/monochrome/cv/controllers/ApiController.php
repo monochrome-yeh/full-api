@@ -82,8 +82,9 @@ class ApiController extends Controller
     {
         $data = $this->findUserCV($uid);
 
-        $result = $data['cv'][$language];
-        if ($language !== 'zh_tw') {
+        $result = $data['cv']['zh_tw']
+
+        if ($language !== 'zh_tw' && isset($data['cv'][$language])) {
             $result = array_replace_recursive($data['cv']['zh_tw'], $data['cv'][$language]);
         }
 
@@ -107,8 +108,8 @@ class ApiController extends Controller
         } else {
             $model = new CVModel();
             $data = [];
-            $data['CVModel'] = $userModel->cv[$language];
-            if ($language !== 'zh_tw') {
+            $data['CVModel'] = $userModel->cv['zh-tw'];
+            if ($language !== 'zh_tw' && isset($userModel->cv[$language])) {
                 $data['CVModel'] = array_replace_recursive($userModel->cv['zh_tw'], $userModel->cv[$language]);
             }
             $model->load($data);
