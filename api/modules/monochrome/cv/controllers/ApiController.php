@@ -108,7 +108,7 @@ class ApiController extends Controller
         } else {
             $model = new CVModel();
             $data = [];
-            $data['CVModel'] = $userModel->cv['zh-tw'];
+            $data['CVModel'] = $userModel->cv['zh_tw'];
             if ($language !== 'zh_tw' && isset($userModel->cv[$language])) {
                 $data['CVModel'] = array_replace_recursive($userModel->cv['zh_tw'], $userModel->cv[$language]);
             }
