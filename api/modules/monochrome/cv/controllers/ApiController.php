@@ -80,6 +80,8 @@ class ApiController extends Controller
 
     public function actionProfile($uid, $language)
     {
+        $language = $this->renameLanguage($language);
+
         $data = $this->findUserCV($uid);
 
         $result = $data['cv']['zh_tw'];
@@ -102,6 +104,8 @@ class ApiController extends Controller
 
     public function actionUpdate($uid, $language)
     {
+        $language = $this->renameLanguage($language);
+        
         $userModel = $this->findUserModel($uid);
         if (!isset($userModel->cv)) {
             return false; //no user, no cv
@@ -135,6 +139,11 @@ class ApiController extends Controller
             //return $model->getErrors();
             return $userModel->cv[$language];
         }
+    }
+
+    private function renameLanguage($language)
+    {
+        return str_replace('-', '_', $language);
     }
 
     protected function findUserCV($uid)
