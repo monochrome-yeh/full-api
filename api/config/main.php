@@ -37,7 +37,7 @@ return [
                     'controller' => ['cv' => 'cv/api'],
                     'tokens' => [
                         '{id}' => '<uid:\w+>',
-                        '{language}' => '<language:(zh-tw|zh-cn|en)>'
+                        '{language}' => '<language:(zh-tw|zh-cn|en|zh_tw|zh_cn)>'
                     ],
                     'extraPatterns' => [
                         'GET,HEAD profile/{id}/{language}' => 'profile',
